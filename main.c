@@ -1,40 +1,43 @@
 #include "interpreter.h"
-
-int FileReader(char[] filename)
+ 
+int FileReader(char filename[])
 {
-    '''
-    purpose: opens a file with the extension .monkey, then reads each line sending the line to another function depending on 
-             the first token it reads,
-    '''
+    /*
+    purpose: opens a file with the extension .monkey, then it sends each line to a lexer to be broken into tokens
+    */
     FILE *fptr;
     
-    if (filename <=7)
+    if (strlen(filename) <=7)
     {
-        break;
+        return -1;
     }
     if (strcmp(filename + strlen(filename) - 7, ".monkey") == 0)
     {
         fptr = fopen(filename, "r");
     }
-
-    char monkeyLine[100]
-
+ 
+    char monkeyLine[100];
+ 
     while(fgets(monkeyLine, 100, fptr))
     {
-        char[][] tokens = lexer(monkeyLine);
-        char[] = parser(tokens);
-
+        char tokens[100][100] = lexer(monkeyLine);
+        //change data type later to binary tree thing
+        char binaryTreeThing[] = parser(tokens);
+        syntaxTree(binaryTreeThing);
+ 
     }
+
+    fclose(fptr)
 }
-
-char[][] lexer(char[] fileLine)
+ 
+char[][] lexer(char fileLine[])
 {
-    '''
+    /*
     purpose: take a file line read it break it to each token store in a char[][] then return stored values
-    '''
-
-    int length = sizeof(fileLine) / size(fileLine[0])
-
+    */
+ 
+    int length = strlen(fileLine) / sizeof(fileLine[0])
+ 
     char wordTracker[100];
     char tokens[100][100];
     int tokenIndexTracker = 0;
@@ -55,51 +58,49 @@ char[][] lexer(char[] fileLine)
             wordIndexTracker++;
         }
     }
-
+ 
     wordTracker[wordIndexTracker] = '\0';
     strcpy(tokens[tokenIndexTracker], wordTracker);
-
-    char binaryTreeThingIdk[] = parsed(tokens)
-    syntaxTree(binaryTreeThingIdk)
-
+ 
+    return tokens;
+ 
     
 }
-
-char[] parser(char[][] tokens)
+ 
+char[] parser(char tokens[][])
 {
     //for now im using char[] as the return but it should return a binary tree like variable
-    '''
+    /*
     purpose: takes the token of a given line and organizes them in the right heiarchy
-    '''
-
-
+    */
+ 
+ 
 }
-
-char[] syntaxTree(char[])
+ 
+char[] syntaxTree(char[] binaryTreeThing)
 {
     //for now it takes a char[] but it should take a binary tree like variable
-    '''
+    /*
     purpose: take a parsed line then examine it to find which function in the interpreter to give it too
-    '''
+    */
 }
-
-char[] filemaker(char[] assemblyInterpretation, int heiarchy, char[] originalFileName)
+ 
+char[] filemaker(char assemblyInterpretation[], int heiarchy, char originalFileName[])
 {
-    '''
+    /*
     purpose: takes a line of binary text and an int heiarchy which tells it where to place it in a file, it then opens a file and writes 
              the line of assembly in it
-    '''
-
+    */
+ 
     FILE *fptr;
-
+ 
     char outputFileName[100];
-
+ 
     sprintf(outputFileName, "%s.asm", originalFileName);
-
+ 
     fptr = fopen(outputFileName, "a");
-
+ 
     //after this use the hiearchy and fseek to place the text in the write spot in the file then write the assemblyInterpretation to it
-
+ 
     fclose(fptr);
 }
-
