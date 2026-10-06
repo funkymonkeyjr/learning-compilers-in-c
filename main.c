@@ -1,4 +1,6 @@
-int main(void, char[] filename)
+#include "interpreter.h"
+
+int FileReader(char[] filename)
 {
     '''
     purpose: opens a file with the extension .monkey, then reads each line sending the line to another function depending on 
@@ -23,6 +25,20 @@ int main(void, char[] filename)
     }
 }
 
+char[][] lexer(char[] FileLine)
+{
+    '''
+    purpose: take a file line read it break it to each token store in a char[][] then return stored values
+    '''
+}
+
+char[] parser(char[][] tokens)
+{
+    '''
+    purpose: takes the token of a given line and organizes them in the write heiarchy
+    '''
+}
+
 char[] filemaker(char[] binaryInterpretation, int heiarchy)
 {
     '''
@@ -32,12 +48,3 @@ char[] filemaker(char[] binaryInterpretation, int heiarchy)
     //create a file and write down assembly derived from my monkey script language
 }
 
-
-char[] banana(char[] boolLine)
-{
-    '''
-    purpose: given a line of monkey script in which the first token is banana, meaning that its a 
-    '''
-
-    return []
-}
