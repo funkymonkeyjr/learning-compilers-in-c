@@ -2,30 +2,30 @@
 #define INTERPRETER_C
 //maybe i should use .h look into it
  
-char[] bananas(char boolLine[])
+int bananas(char boolLine[])
 {
     /*
     purpose: interpret a line of integer code and return a line of assembly code
     */
- 
-    return []
+
+    return 1;
 }
  
-char[] mashedBananas(char boolLine[])
+int mashedBananas(char boolLine[])
 {
     /*
     purpose: interpret a line of float code and return a line of assembly code
     */
  
-    return []
+    return 1;
 }
  
-char[] banana(char boolLine[])
+int banana(char boolLine[])
 {
     /*
     purpose: interpret a line of boolean code and return a line of assembly code
     */
  
-    return []
+    return 1;
 }
  

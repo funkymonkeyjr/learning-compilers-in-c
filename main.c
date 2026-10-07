@@ -1,4 +1,7 @@
 
+#include <stdio.h>   // FILE, fopen, fclose, fgets, sprintf, NULL
+#include <string.h>  
+
 int FileReader(char filename[])
 {
     /*
